@@ -7,7 +7,7 @@ const pokemonRandom = document.getElementById("random");
 const btnAddFavorites = document.getElementById("btnAddFavorite");
 
 // elemnto
-const loandingScreen = document.getElementById("loanding");
+const loadingScreen = document.getElementById("loading");
 const radar = document.getElementById("radar");
 const pokemonScreen = document.getElementById("screenContent");
 const pokemonSearch = document.getElementById("search");

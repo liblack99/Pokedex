@@ -1,7 +1,7 @@
 const favoritePokemon = [];
 let pokemonId = 1;
 let totalPokemon = 1011;
-let rotacion = 0;
+let rotation = 0;
 let currentPokemon = null;
 
 async function getPokemon(pokemonId) {
@@ -24,7 +24,7 @@ async function getPokemon(pokemonId) {
     return null;
   }
 }
-loandingScreen.classList.remove("inactive");
+loadingScreen.classList.remove("inactive");
 
 async function showPokemon(pokemonId) {
   try {
@@ -84,12 +84,12 @@ async function showPokemon(pokemonId) {
     pokemonWeight.appendChild(weightText);
     pokemonExp.appendChild(expText);
 
-    //abilites
+    //abilities
 
     const abilities = pokemon.abilities;
 
-    abilities.forEach((elemento, index) => {
-      const abilityName = elemento.ability.name.replace("-", " ");
+    abilities.forEach((element, index) => {
+      const abilityName = element.ability.name.replace("-", " ");
 
       if (index === 0) {
         abilityPrimary.textContent = abilityName;

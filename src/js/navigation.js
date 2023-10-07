@@ -1,6 +1,6 @@
 btnRight.addEventListener("click", async () => {
-  rotacion += 30;
-  radar.style.transform = `rotate(${rotacion}deg)`;
+  rotation += 30;
+  radar.style.transform = `rotate(${rotation}deg)`;
   pokemonId++;
   if (pokemonId === totalPokemon) {
     pokemonId = 1;
@@ -12,8 +12,8 @@ btnRight.addEventListener("click", async () => {
   }, 200);
 });
 btnLeft.addEventListener("click", async () => {
-  rotacion -= 30;
-  radar.style.transform = `rotate(${rotacion}deg)`;
+  rotation -= 30;
+  radar.style.transform = `rotate(${rotation}deg)`;
   if (pokemonId === 1) {
     pokemonId = totalPokemon;
   }
@@ -25,8 +25,8 @@ btnLeft.addEventListener("click", async () => {
   }, 200);
 });
 btnUp.addEventListener("click", async () => {
-  rotacion += 60;
-  radar.style.transform = `rotate(${rotacion}deg)`;
+  rotation += 60;
+  radar.style.transform = `rotate(${rotation}deg)`;
   pokemonId = pokemonId + 10;
   if (pokemonId > totalPokemon) {
     pokemonId = 1;
@@ -38,8 +38,8 @@ btnUp.addEventListener("click", async () => {
   }, 200);
 });
 btnDown.addEventListener("click", async () => {
-  rotacion -= 60;
-  radar.style.transform = `rotate(${rotacion}deg)`;
+  rotation -= 60;
+  radar.style.transform = `rotate(${rotation}deg)`;
   if (pokemonId === 1) {
     pokemonId = totalPokemon;
   }
@@ -51,9 +51,9 @@ btnDown.addEventListener("click", async () => {
   }, 200);
 });
 pokemonRandom.addEventListener("click", async () => {
-  const aleatorio = Math.floor(Math.random() * totalPokemon) + 1;
-  await showPokemon(aleatorio);
-  pokemonId = await getIndex(aleatorio);
+  const random = Math.floor(Math.random() * totalPokemon) + 1;
+  await showPokemon(random);
+  pokemonId = await getIndex(random);
 });
 pokemonSearch.addEventListener("keypress", async (event) => {
   const pokemonValue = pokemonSearch.value.trim();

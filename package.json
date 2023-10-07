@@ -1,7 +1,7 @@
 {
   "name": "pokedex",
   "version": "1.0.0",
-  "description": "",
+  "description": "Una pokedex que proporciona información detallada sobre Pokémon, como sus nombres, imágenes, tipos, estadísticas y movimientos, Los usuarios pueden buscar y agregar a favoritos los pokemons.",
   "main": "./src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
