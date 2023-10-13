@@ -5,7 +5,7 @@
   --purple: #481557;
   --purple-shadow: rgba(72, 21, 87, 0.5);
   --purple-light: #b058a0;
-  --puerple-dark: #000850;
+  --purple-dark: #000850;
 
   --blue: #00aaf7;
   --blue-sky: #01dbff;
@@ -14,7 +14,7 @@
   --green: #30f454;
   --green-light: #78c850;
   --white: #fff9f1;
-  --white-tranparent: rgba(255, 255, 255, 0.5);
+  --white-transparent: rgba(255, 255, 255, 0.5);
   --red: red;
 }
 * {
@@ -112,7 +112,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 8px solid var(--puerple-dark);
+  border: 8px solid var(--purple-dark);
   z-index: 2;
   box-shadow: inset -8px -8px 0 var(--purple-shadow);
   transform: rotate();
@@ -124,7 +124,7 @@ html {
   position: relative;
   border-radius: 50%;
   border: 2px solid var(--white);
-  background-color: var(--white-tranparent);
+  background-color: var(--white-transparent);
 }
 .radar__light::after {
   content: "";
@@ -136,7 +136,7 @@ html {
   transform: rotate(45deg);
   border-radius: 50%;
   border: 2px solid var(--white);
-  background-color: var(--white-tranparent);
+  background-color: var(--white-transparent);
 }
 .lights {
   display: flex;
@@ -150,8 +150,8 @@ html {
   height: 40px;
   border-radius: 50%;
   margin-left: 10px;
-  border: 5px solid var(--puerple-dark);
-  box-shadow: inset -4px -2px 0 var(--white-tranparent);
+  border: 5px solid var(--purple-dark);
+  box-shadow: inset -4px -2px 0 var(--white-transparent);
   position: relative;
 }
 .lights__color--red {
@@ -229,7 +229,7 @@ html {
   justify-content: space-between;
   align-items: center;
 }
-.btn__addfavorite {
+.btn__add-favorite {
   position: relative;
   width: 40px;
   height: 40px;
@@ -242,8 +242,11 @@ html {
   color: var(--white);
   cursor: pointer;
 }
-.btn__addfavorite:hover {
+.btn__add-favorite:hover {
   transform: scale(1.1);
+}
+.btn__add-favorite:hover .btn__message {
+  display: block;
 }
 .btn__message {
   color: black;
@@ -252,19 +255,20 @@ html {
   left: 30%;
   width: 80px;
   padding: 2px 5px;
-  background-color: var(--white-tranparent);
+  background-color: var(--white-transparent);
   border-radius: 4px;
   border: 1px solid var(--purple);
   text-align: center;
   pointer-events: none;
   font-size: 1.8rem;
+  display: none;
 }
 .sound__outlet {
   width: 150px;
   height: 8px;
   border-radius: 20px;
   margin: 5px;
-  background-color: var(--puerple-dark);
+  background-color: var(--purple-dark);
 }
 .name__pokemon {
   font-size: 2.5rem;
@@ -350,12 +354,12 @@ html {
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
   z-index: 2;
-  background-color: var(--puerple-dark);
+  background-color: var(--purple-dark);
 }
 .directions__button {
   display: grid;
   place-items: center;
-  background-color: var(--puerple-dark);
+  background-color: var(--purple-dark);
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -393,7 +397,7 @@ html {
 .arrow {
   width: 25px;
   height: 25px;
-  background-color: var(--white-tranparent);
+  background-color: var(--white-transparent);
 }
 .arrow:hover {
   transform: scale(1.1);
@@ -494,7 +498,7 @@ html {
   background-color: var(--pink-light);
   z-index: -1;
 }
-.right__contaienr {
+.right__container {
   width: 75%;
   height: 520px;
   position: absolute;
@@ -533,7 +537,7 @@ html {
   padding: 0 20px;
   border-radius: 20px;
   box-shadow: inset 0 8px 0 rgba(0, 0, 0, 0.4);
-  background-color: var(--puerple-dark);
+  background-color: var(--purple-dark);
 }
 .stats__item {
   width: 50%;
@@ -606,14 +610,14 @@ html {
   width: 50%;
   margin-left: 5px;
   border-radius: 10px;
-  background: var(--puerple-dark);
+  background: var(--purple-dark);
 }
 .selector__button {
   position: relative;
   width: 45px;
   height: 45px;
   align-self: flex-end;
-  border: 4px solid var(--puerple-dark);
+  border: 4px solid var(--purple-dark);
   border-radius: 50%;
   background: var(--yellow-light);
   box-shadow: inset -4px -2px 0 rgba(72, 21, 87, 0.5);
@@ -643,12 +647,12 @@ html {
 }
 .bottom-screens__screen {
   width: 45%;
-  background: var(--puerple-dark);
+  background: var(--purple-dark);
   height: 80px;
   border-radius: 10px;
   color: var(--white);
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 900;
   display: grid;
   place-items: center;
 }
@@ -663,13 +667,10 @@ html {
   border: 4px solid #fff;
   opacity: 1;
   border-radius: 50%;
-  animation: loanding 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  animation: loading 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 .load div:nth-child(2) {
   animation-delay: -0.5s;
-}
-.inactive {
-  display: none;
 }
 footer {
   width: 100%;
@@ -695,6 +696,9 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+.inactive {
+  display: none;
+}
 @keyframes blink {
   0%,
   50% {
@@ -705,7 +709,7 @@ footer a:hover {
     opacity: 0;
   }
 }
-@keyframes loanding {
+@keyframes loading {
   0% {
     top: 60px;
     left: 60px;

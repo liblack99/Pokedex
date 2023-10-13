@@ -1,44 +1,29 @@
-const favoritePokemon = [];
-let pokemonId = 1;
-let totalPokemon = 1011;
-let rotation = 0;
-let currentPokemon = null;
+import getPokemon from "./getPokemon";
+import typeColors from "./types";
 
-async function getPokemon(pokemonId) {
-  const URL = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`;
-
-  try {
-    const response = await fetch(URL);
-    if (response.ok) {
-      const data = await response.json();
-      return data;
-    } else {
-      return null;
-    }
-  } catch (error) {
-    console.error(error);
-    pokemonScreen.innerHTML = "";
-    const textError = document.createElement("p");
-    textError.textContent = "⚠Failed to find pokemon";
-    pokemonScreen.appendChild(textError);
-    return null;
-  }
-}
-loadingScreen.classList.remove("inactive");
+export let currentPokemon;
+const loadingTemplate = `<div class="load" id="loading"><div></div><div></div></div>`;
+const pokemonScreen = document.getElementById("screenContent");
+const pokemonName = document.getElementById("pokemonName");
+const pokemonTypes = document.getElementById("types");
+const pokemonStats = document.getElementById("stats");
+const pokemonWeight = document.getElementById("weight");
+const pokemonExp = document.getElementById("experience");
+const abilityPrimary = document.getElementById("abilityPrimary");
+const abilitySecond = document.getElementById("abilitySecond");
 
 async function showPokemon(pokemonId) {
+  pokemonScreen.innerHTML = loadingTemplate;
   try {
     const pokemon = await getPokemon(pokemonId);
     currentPokemon = pokemon;
-    // img
+
     const pokemonImg = pokemon.sprites.other["official-artwork"].front_default;
     pokemonScreen.innerHTML = "";
     const img = document.createElement("img");
     img.setAttribute("src", pokemonImg);
     img.setAttribute("alt", pokemon.name);
-
     pokemonScreen.appendChild(img);
-
     // name
     const name = pokemon.name.replace("-", " ");
     pokemonName.innerHTML = "";
@@ -97,6 +82,7 @@ async function showPokemon(pokemonId) {
         abilitySecond.textContent = abilityName;
       }
     });
+    return currentPokemon;
   } catch (error) {
     pokemonScreen.innerHTML = "";
     pokemonName.innerHTML = "";
@@ -110,47 +96,5 @@ async function showPokemon(pokemonId) {
     pokemonScreen.appendChild(textError);
   }
 }
-showPokemon(pokemonId);
 
-async function getIndex(pokemonId) {
-  const pokemons = await getPokemon(pokemonId);
-  const index = pokemons.id;
-  return index;
-}
-
-function addToFavorites(pokemon) {
-  if (favoritePokemon.length < 10) {
-    favoritePokemon.push(pokemon);
-    showFavorite();
-  } else {
-    pokemonScreen.innerHTML = "";
-    const textError = document.createElement("p");
-    textError.textContent = "You already have 10 favorite Pokémon!";
-    pokemonScreen.appendChild(textError);
-  }
-}
-
-function showFavorite() {
-  const pokemonFavorites = document.querySelectorAll(".pokemons__favorites");
-
-  favoritePokemon.forEach((pokemon, index) => {
-    const src = pokemon.sprites.other["official-artwork"].front_default;
-
-    if (pokemonFavorites[index]) {
-      pokemonFavorites[index].innerHTML = "";
-      const img = document.createElement("img");
-      img.setAttribute("src", src);
-      img.setAttribute("alt", pokemon.name);
-      pokemonFavorites[index].addEventListener("click", () => {
-        pokemonFavorites[index].innerHTML = "";
-        removeFavorite(index);
-      });
-
-      pokemonFavorites[index].appendChild(img);
-    }
-  });
-}
-
-function removeFavorite(index) {
-  favoritePokemon.splice(index, 1);
-}
+export default showPokemon;

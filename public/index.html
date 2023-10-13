@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/css/style.css" />
-    <link rel="icon" href="./src/assets/icon/pokedex.svg" />
     <title>Pokedex</title>
   </head>
   <body>
@@ -31,14 +29,14 @@
             <div class="screen__lights_led" id="ledRight"></div>
           </div>
           <div class="screen__content" id="screenContent">
-            <div class="load inactive" id="loading">
+            <div class="load" id="loading">
               <div></div>
               <div></div>
             </div>
           </div>
           <div class="screen__btn">
-            <div class="btn__addfavorite" id="btnAddFavorite">
-              <small class="btn__message inactive" id="catch">Catch</small>
+            <div class="btn__add-favorite" id="btnAddFavorite">
+              <small class="btn__message" id="catch">Catch</small>
               <i
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +56,7 @@
                 </svg>
               </i>
             </div>
-            <p class="name__pokemon" id="pokemonName">NOMBRE</p>
+            <p class="name__pokemon" id="pokemonName">Name</p>
             <div class="sound">
               <div class="sound__outlet"></div>
               <div class="sound__outlet"></div>
@@ -121,7 +119,7 @@
       <section class="pokedex__right">
         <div class="right__top"></div>
         <div class="border__right">
-          <div class="right__contaienr">
+          <div class="right__container">
             <div id="stats" class="stats">
               <!-- <p class="stats__item">hp: <span>70</span></p> -->
             </div>
@@ -192,9 +190,5 @@
         </span>
       </a>
     </footer>
-    <script src="./src/js/node.js"></script>
-    <script src="./src/js/typesColor.js"></script>
-    <script src="./src/js/index.js"></script>
-    <script src="./src/js/navigation.js"></script>
   </body>
 </html>

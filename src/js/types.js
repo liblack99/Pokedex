@@ -18,3 +18,4 @@ const typeColors = {
   dark: { background: "#7A5848", color: "white" },
   fairy: { background: "#E79FE7", color: "white" },
 };
+export default typeColors;
