@@ -2,7 +2,7 @@ import showPokemon from "./showPokemon";
 
 async function nextPokemon(pokemonId, totalPokemon) {
   let nextPokemonId = pokemonId + 1;
-  if (nextPokemonId === totalPokemon) {
+  if (nextPokemonId >= totalPokemon) {
     nextPokemonId = 1;
   }
   await showPokemon(nextPokemonId);

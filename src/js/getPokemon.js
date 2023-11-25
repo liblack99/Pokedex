@@ -5,6 +5,7 @@ async function getPokemon(pokemonId) {
     const response = await fetch(URL);
     if (response.ok) {
       const data = await response.json();
+      console.log(data.id);
       return data;
     } else {
       return null;

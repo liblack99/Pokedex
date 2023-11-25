@@ -10,7 +10,7 @@ import upPokemon from "./src/js/upPokemon";
 import downPokemon from "./src/js/downPokemon";
 
 let currentPokemonId = 1;
-let totalPokemon = 1017;
+let totalPokemon = 1010;
 let rotation = 0;
 
 // bottom
