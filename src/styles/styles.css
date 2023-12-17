@@ -40,6 +40,7 @@ html {
   display: grid;
   grid-template-columns: 1fr 60px 1fr;
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 .pokedex__left {
   height: 100%;
